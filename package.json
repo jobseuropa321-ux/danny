@@ -1,0 +1,12 @@
+{
+  "name": "comunidade-digital-projeto",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Comunidade Do Atendimento ao Digital — landing page",
+  "scripts": {
+    "dev": "serve . -l 4000"
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}
