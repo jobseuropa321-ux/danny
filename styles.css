@@ -561,10 +561,10 @@ body.is-scrolled .mobile-cta { transform:translate(-50%,0); }
   .hero__bullets { gap:3px; }
   .hero__bullets li { min-height:18px; padding:3px 6px; font-size:clamp(10.8px,1.75vw,13.5px); line-height:1.2; border-radius:6px; }
   .hero__bullets b { margin-right:5px; }
-  .hero__facts { min-height:44px; flex-wrap:wrap; gap:4px 6px; margin-top:9px; padding:7px 12px; font-size:clamp(9.5px,1.5vw,10px); letter-spacing:.02em; }
-  .hero__facts i { width:3px; height:3px; }
-  .hero__facts strong { gap:3px; padding:4px 7px; font-size:clamp(11px,1.75vw,12px); }
-  .hero__facts strong em { font-size:clamp(6px,.9vw,6.4px); }
+  .hero__facts { min-height:40px; flex-wrap:nowrap; gap:clamp(1.5px,.8vw,6px); margin-top:9px; padding:7px clamp(5px,1.6vw,12px); font-size:clamp(5.8px,1.93vw,10px); letter-spacing:0; }
+  .hero__facts i { width:2.5px; height:2.5px; }
+  .hero__facts strong { gap:2px; padding:3px clamp(3px,1.1vw,7px); font-size:clamp(7px,2.32vw,12px); }
+  .hero__facts strong em { font-size:clamp(3.9px,1.3vw,6.4px); }
   .button--hero { min-height:52px; margin-top:8px; border-radius:7px; font-size:clamp(11px,1.85vw,13px); letter-spacing:.105em; }
   .hero__sales { height:67px; margin-top:8px; }
   .hero-sale { grid-template-columns:44px 1fr auto; gap:8px; padding:8px 10px 8px 8px; border-radius:14px; }
@@ -709,17 +709,6 @@ body.is-scrolled .mobile-cta { transform:translate(-50%,0); }
   .hero-sale__icon--hubla img { width:292px; left:-18px; top:-35px; }
 }
 
-@media (max-width: 480px) {
-  .hero__facts { padding-inline:10px; font-size:9.5px; }
-  .hero__facts strong { gap:2px; padding:3px 6px; font-size:11px; }
-  .hero__facts strong em { font-size:6px; }
-}
-
-@media (max-width: 355px) {
-  .hero__facts { font-size:9px; letter-spacing:.01em; }
-  .hero__facts strong { font-size:10.5px; padding:3px 5px; }
-  .hero__facts strong em { font-size:5.6px; }
-}
 
 @media (prefers-reduced-motion: reduce) {
   * { scroll-behavior:auto !important; animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
