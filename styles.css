@@ -568,10 +568,10 @@ body.is-scrolled .mobile-cta { transform:translate(-50%,0); }
   .hero__bullets { gap:3px; }
   .hero__bullets li { min-height:18px; padding:3px 6px; font-size:clamp(10.8px,1.75vw,13.5px); line-height:1.2; border-radius:6px; }
   .hero__bullets b { margin-right:5px; }
-  .hero__facts { min-height:44px; gap:3px; margin-top:9px; padding:7px 8px; font-size:clamp(8px,1.35vw,10px); letter-spacing:.005em; }
+  .hero__facts { min-height:44px; flex-wrap:wrap; gap:4px 6px; margin-top:9px; padding:7px 12px; font-size:clamp(9.5px,1.5vw,10px); letter-spacing:.02em; }
   .hero__facts i { width:3px; height:3px; }
-  .hero__facts strong { gap:3px; padding:4px 6px; font-size:clamp(10px,1.75vw,12px); }
-  .hero__facts strong em { font-size:clamp(5.2px,.9vw,6.4px); }
+  .hero__facts strong { gap:3px; padding:4px 7px; font-size:clamp(11px,1.75vw,12px); }
+  .hero__facts strong em { font-size:clamp(6px,.9vw,6.4px); }
   .button--hero { min-height:52px; margin-top:8px; border-radius:7px; font-size:clamp(11px,1.85vw,13px); letter-spacing:.105em; }
   .hero__sales { height:67px; margin-top:8px; }
   .hero-sale { grid-template-columns:44px 1fr auto; gap:8px; padding:8px 10px 8px 8px; border-radius:14px; }
@@ -717,16 +717,15 @@ body.is-scrolled .mobile-cta { transform:translate(-50%,0); }
 }
 
 @media (max-width: 480px) {
-  .hero__facts { gap:2px; padding-inline:4px; font-size:7.2px; }
-  .hero__facts i { display:none; }
-  .hero__facts strong { gap:2px; padding:3px 4px; font-size:10px; }
-  .hero__facts strong em { font-size:5px; }
+  .hero__facts { padding-inline:10px; font-size:9.5px; }
+  .hero__facts strong { gap:2px; padding:3px 6px; font-size:11px; }
+  .hero__facts strong em { font-size:6px; }
 }
 
 @media (max-width: 355px) {
-  .hero__facts { font-size:6.7px; letter-spacing:0; }
-  .hero__facts strong { font-size:9px; padding:3px 3px; }
-  .hero__facts strong em { font-size:4.6px; }
+  .hero__facts { font-size:9px; letter-spacing:.01em; }
+  .hero__facts strong { font-size:10.5px; padding:3px 5px; }
+  .hero__facts strong em { font-size:5.6px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
