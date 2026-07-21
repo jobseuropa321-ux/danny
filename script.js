@@ -377,15 +377,4 @@
     [...viralTrack.children].forEach((card) => viralTrack.append(card.cloneNode(true)));
     viralTrack.dataset.cloned = 'true';
   }
-
-  const checkoutNotice = document.querySelector('#checkout-notice');
-  const closeCheckout = () => { checkoutNotice.hidden = true; };
-  document.querySelectorAll('.checkout-button').forEach((button) => button.addEventListener('click', (event) => {
-    event.preventDefault();
-    checkoutNotice.hidden = false;
-  }));
-  checkoutNotice?.querySelector('.checkout-notice__close')?.addEventListener('click', closeCheckout);
-  checkoutNotice?.querySelector('.checkout-notice__ok')?.addEventListener('click', closeCheckout);
-  checkoutNotice?.addEventListener('click', (event) => { if (event.target === checkoutNotice) closeCheckout(); });
-  addEventListener('keydown', (event) => { if (event.key === 'Escape' && !checkoutNotice.hidden) closeCheckout(); });
 })();
