@@ -343,18 +343,20 @@
   }
 
   const startRotator = (selector, interval) => {
-    const words = [...document.querySelectorAll(`${selector} span`)];
-    if (!words.length || reduceMotion) return;
-    let index = 0;
-    setInterval(() => {
-      const prev = index;
-      index = (index + 1) % words.length;
-      words[prev].classList.remove('is-active');
-      words[prev].classList.add('is-leaving');
-      words[index].classList.remove('is-leaving');
-      words[index].classList.add('is-active');
-      setTimeout(() => words[prev].classList.remove('is-leaving'), 500);
-    }, interval);
+    document.querySelectorAll(selector).forEach((box) => {
+      const words = [...box.querySelectorAll('span')];
+      if (words.length < 2 || reduceMotion) return;
+      let index = 0;
+      setInterval(() => {
+        const prev = index;
+        index = (index + 1) % words.length;
+        words[prev].classList.remove('is-active');
+        words[prev].classList.add('is-leaving');
+        words[index].classList.remove('is-leaving');
+        words[index].classList.add('is-active');
+        setTimeout(() => words[prev].classList.remove('is-leaving'), 500);
+      }, interval);
+    });
   };
   startRotator('[data-cta-rotator]', 2000);
   startRotator('[data-price-rotator]', 2000);

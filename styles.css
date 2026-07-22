@@ -379,7 +379,10 @@ h1 em,h2 em { color: var(--gold); font-family: "Playfair Display", serif; font-w
 .offer-badge { display:inline-flex; align-items:center; gap:9px; margin-bottom:16px; padding:11px 18px; color:var(--cream); background:var(--red); border-radius:11px; box-shadow:0 12px 28px rgba(190,13,62,.3); font-size:11px; font-weight:900; letter-spacing:.14em; transform:rotate(-2deg); animation:badgeWiggle 3.4s ease-in-out infinite; }
 .offer-badge span { color:var(--gold); font-size:12px; }
 @keyframes badgeWiggle { 0%,100% { transform:rotate(-2deg); } 25% { transform:rotate(1.6deg) translateY(-2px); } 50% { transform:rotate(-1.2deg); } 75% { transform:rotate(1.8deg) translateY(-1px); } }
-.offer-price-hl { position:relative; display:inline-block; background:linear-gradient(100deg,var(--gold) 25%,#ffd97a 46%,var(--gold) 66%); background-size:220% 100%; -webkit-background-clip:text; background-clip:text; color:transparent; animation:starsShimmer 3.4s ease-in-out infinite; }
+.offer-price-hl { position:relative; display:inline-grid; vertical-align:baseline; }
+.offer-price-hl span { grid-area:1/1; white-space:nowrap; background:linear-gradient(100deg,#a86a08 25%,#d69720 46%,#a86a08 66%); background-size:220% 100%; -webkit-background-clip:text; background-clip:text; color:transparent; animation:starsShimmer 3.4s ease-in-out infinite; opacity:0; transform:translateY(12px); transition:opacity .4s, transform .5s cubic-bezier(.2,.75,.25,1); }
+.offer-price-hl span.is-active { opacity:1; transform:translateY(0); }
+.offer-price-hl span.is-leaving { opacity:0; transform:translateY(-12px); }
 .offer-anchor { font-size:17px; line-height:1.6; opacity:.85; }
 .offer-anchor b { color:var(--red); font-weight:900; }
 .offer__grid { display:grid; grid-template-columns:.9fr 1.1fr; gap:80px; align-items:center; }
