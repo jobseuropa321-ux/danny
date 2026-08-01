@@ -84,6 +84,15 @@ h1 em,h2 em { color: var(--gold); font-family: "Playfair Display", serif; font-w
 .vsl__cta span { transition:transform .3s; }
 .vsl__cta:hover span { transform:translateX(4px); }
 
+/* Botão com efeito líquido (dourado/vinho da marca) — anima sozinho no mobile */
+.btn-liquid { isolation:isolate; }
+.btn-liquid .liquid { position:absolute; inset:-60% 0 auto 0; height:220%; z-index:-1; pointer-events:none; }
+.btn-liquid .liquid::before,
+.btn-liquid .liquid::after { content:""; position:absolute; width:180%; height:180%; left:50%; top:50%; }
+.btn-liquid .liquid::after { background:radial-gradient(circle at 50% 50%,#ffe6ad,#eaa11e); border-radius:44%; transform:translate(-50%,-50%); animation:btnLiquid 8s linear infinite; opacity:.55; }
+.btn-liquid .liquid::before { background:radial-gradient(circle at 50% 50%,rgba(190,13,62,.55),rgba(143,9,47,.35)); border-radius:40%; transform:translate(-50%,-50%); animation:btnLiquid 13s linear infinite reverse; opacity:.28; }
+@keyframes btnLiquid { from { transform:translate(-50%,-50%) rotate(0deg); } to { transform:translate(-50%,-50%) rotate(360deg); } }
+
 /* Trava do conteúdo até a hora do pitch — botão fica invisível mas reserva o espaço */
 body.vsl-locked .vsl__cta { visibility:hidden; pointer-events:none; }
 body.vsl-locked main > section:not(.vsl) { display:none !important; }
@@ -98,7 +107,8 @@ body.vsl-locked .mobile-cta { display:none !important; }
   .vsl__ticker { padding:13px 10px; gap:0; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .vsl__play, .vsl__cta, .vsl__cta::after, .vsl__ticker { animation:none; }
+  .vsl__play, .vsl__cta, .vsl__cta::after, .vsl__ticker,
+  .btn-liquid .liquid::before, .btn-liquid .liquid::after { animation:none; }
 }
 
 .hero { min-height: 900px; position: relative; overflow: hidden; color: var(--cream); background: var(--red); isolation: isolate; }
