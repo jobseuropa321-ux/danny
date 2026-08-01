@@ -360,7 +360,7 @@
   };
   startRotator('[data-cta-rotator]', 2000);
   startRotator('[data-price-rotator]', 2000);
-  startRotator('[data-vsl-ticker] .vsl__ticker-track', 3200);
+  startRotator('[data-vsl-ticker] .vsl__ticker-track', 5200);
 
   document.querySelectorAll('[data-drag-scroll]').forEach((track) => {
     let down = false;
