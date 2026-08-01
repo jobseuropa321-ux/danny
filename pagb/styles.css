@@ -71,7 +71,7 @@ h1 em,h2 em { color: var(--gold); font-family: "Playfair Display", serif; font-w
 .vsl__ticker-track span.is-active { opacity:1; transform:none; }
 .vsl__ticker-track span.is-leaving { opacity:0; transform:translateY(-10px); }
 
-.vsl__stage { position:relative; height:min(72dvh,620px); aspect-ratio:9/16; width:auto; max-width:100%; overflow:hidden; border:1px solid rgba(246,180,58,.45); border-radius:22px; box-shadow:0 28px 64px rgba(0,0,0,.5), 0 0 0 1px rgba(236,166,187,.12), inset 0 1px 0 rgba(255,255,255,.12); background:#150a0e; }
+.vsl__stage { position:relative; height:min(78dvh,680px); aspect-ratio:9/16; width:auto; max-width:100%; overflow:hidden; border:1px solid rgba(246,180,58,.45); border-radius:22px; box-shadow:0 28px 64px rgba(0,0,0,.5), 0 0 0 1px rgba(236,166,187,.12), inset 0 1px 0 rgba(255,255,255,.12); background:#150a0e; }
 .vsl__player { position:absolute; inset:0; }
 .vsl__player > * { width:100%; height:100%; }
 .vsl__placeholder { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; text-align:center; color:rgba(255,247,230,.75); background:radial-gradient(circle at 50% 38%,rgba(190,13,62,.35),transparent 60%),linear-gradient(160deg,#2a0512,#150a0e); }
