@@ -54,7 +54,7 @@ h1 em,h2 em { color: var(--gold); font-family: "Playfair Display", serif; font-w
 .button--pink { color:var(--red-dark); background:var(--pink); box-shadow:0 14px 35px rgba(236,166,187,.24); }
 .button--pink:hover { background:var(--pink-soft); }
 .button--wide { width: 100%; }
-.checkout-button { position:relative; overflow:hidden; animation:ctaPulse 2.6s ease-in-out infinite; }
+.checkout-button { position:relative; overflow:hidden; animation:ctaPulse 2.6s ease-in-out infinite; white-space:nowrap; gap:8px; padding-inline:16px; letter-spacing:.03em; font-size:clamp(10px,3.2vw,13px); }
 .checkout-button::after { content:""; position:absolute; top:-40%; bottom:-40%; left:-35%; width:26%; background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent); transform:skewX(-18deg); animation:priceShine 2.6s ease-in-out infinite; pointer-events:none; }
 .checkout-button span { transition:transform .3s; }
 .checkout-button:hover span { transform:translateX(5px); }
