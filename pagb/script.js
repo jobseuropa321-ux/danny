@@ -362,6 +362,47 @@
   startRotator('[data-price-rotator]', 2000);
   startRotator('[data-vsl-ticker] .vsl__ticker-track', 6000);
 
+  // VSL: ajusta a fonte de cada frase pra caber sempre em uma linha só
+  const vslTrack = document.querySelector('[data-vsl-ticker] .vsl__ticker-track');
+  if (vslTrack) {
+    const vslSpans = [...vslTrack.querySelectorAll('span')];
+    const measureCtx = document.createElement('canvas').getContext('2d');
+    const fitTicker = () => {
+      const avail = vslTrack.clientWidth - 6;
+      if (avail <= 0) return;
+      const base = parseFloat(getComputedStyle(vslTrack).fontSize);
+      const weight = getComputedStyle(vslTrack).fontWeight || '800';
+      vslSpans.forEach((span) => {
+        measureCtx.font = `${weight} ${base}px "DM Sans", sans-serif`;
+        const width = measureCtx.measureText(span.textContent).width;
+        span.style.fontSize = `${width > avail ? Math.floor(base * avail / width) : base}px`;
+      });
+    };
+    fitTicker();
+    document.fonts?.ready.then(fitTicker);
+    addEventListener('resize', fitTicker);
+  }
+
+  // VSL: trava o conteúdo abaixo do vídeo (inclusive o botão) até a hora do pitch (1:45)
+  const LOCK_SECONDS = 105;
+  const lockNote = document.querySelector('[data-vsl-lock]');
+  if (lockNote) {
+    document.body.classList.add('vsl-locked');
+    const timeEl = lockNote.querySelector('b');
+    const start = Date.now();
+    const fmt = (s) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
+    const renderLock = () => {
+      const left = Math.max(0, LOCK_SECONDS - Math.floor((Date.now() - start) / 1000));
+      if (timeEl) timeEl.textContent = fmt(left);
+      if (left <= 0) {
+        clearInterval(lockTimer);
+        document.body.classList.remove('vsl-locked');
+      }
+    };
+    renderLock();
+    const lockTimer = setInterval(renderLock, 1000);
+  }
+
   document.querySelectorAll('[data-drag-scroll]').forEach((track) => {
     let down = false;
     let startX = 0;
