@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800;9..40,900&family=Playfair+Display:ital,wght@0,700;1,600;1,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260729-1">
+  <link rel="stylesheet" href="styles.css?v=20260729-2">
   <!-- Meta Pixel Code -->
   <script>
   !function(f,b,e,v,n,t,s)
@@ -43,31 +43,25 @@
 
   <main>
     <section class="vsl" id="vsl">
+      <div class="vsl__ticker" data-vsl-ticker aria-live="polite">
+        <span class="vsl__dot" aria-hidden="true"></span>
+        <b class="vsl__ticker-track">
+          <span class="is-active">Dá o play e assiste até o final</span>
+          <span>O que ninguém te contou sobre viver do digital tá nesse vídeo</span>
+          <span>Nos próximos minutos você entende como virar renda o que já sabe</span>
+          <span>Aumenta o som 🔊 — cada detalhe importa</span>
+          <span>Fica até o fim: tem uma condição especial no final</span>
+        </b>
+      </div>
       <div class="vsl__inner">
-        <div class="vsl__ticker" data-vsl-ticker aria-live="polite">
-          <span class="vsl__dot" aria-hidden="true"></span>
-          <b class="vsl__ticker-track">
-            <span class="is-active">Dá o play e assiste até o final</span>
-            <span>O que ninguém te contou sobre viver do digital tá nesse vídeo</span>
-            <span>Nos próximos minutos você entende como virar renda o que já sabe</span>
-            <span>Aumenta o som 🔊 — cada detalhe importa</span>
-            <span>Fica até o fim: tem uma condição especial no final</span>
-          </b>
-        </div>
-
         <div class="vsl__stage">
           <div class="vsl__player">
-            <!-- ================================================================
-                 COLE AQUI O EMBED DA VTURB (vídeo vertical).
-                 Apague todo o bloco .vsl__placeholder abaixo e cole no lugar
-                 o código que a VTurb te der (ex.: <vturb-smartplayer ...>...).
-                 O quadro já está preparado no formato vertical 9:16.
-            ================================================================= -->
-            <div class="vsl__placeholder" aria-hidden="true">
-              <span class="vsl__play">▶</span>
-              <p>Seu vídeo VTurb entra aqui</p>
-              <small>formato vertical 9:16</small>
-            </div>
+            <!-- Vídeo VSL (Panda Video) -->
+            <iframe id="panda-6d11ae01-0d2d-4240-8571-f33ed2780439"
+              src="https://player-vz-aa4b6577-634.tv.pandavideo.com.br/embed/?v=6d11ae01-0d2d-4240-8571-f33ed2780439"
+              style="border:none;"
+              allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture"
+              allowfullscreen="true" fetchpriority="high"></iframe>
           </div>
         </div>
 
