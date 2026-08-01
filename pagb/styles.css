@@ -60,6 +60,38 @@ h1 em,h2 em { color: var(--gold); font-family: "Playfair Display", serif; font-w
 .checkout-button:hover span { transform:translateX(5px); }
 @keyframes ctaPulse { 0%,100% { box-shadow:0 14px 32px rgba(246,180,58,.35); } 50% { box-shadow:0 16px 44px rgba(246,180,58,.6), 0 0 0 6px rgba(246,180,58,.14); } }
 
+/* ===== VSL (topo) ===== */
+.vsl { position:relative; padding:0 0 34px; color:var(--cream); background:radial-gradient(circle at 50% -10%,rgba(246,180,58,.18),transparent 55%),linear-gradient(170deg,#2a0512,var(--red-dark) 55%,#3a0718); isolation:isolate; }
+.vsl__inner { width:min(calc(100% - 32px),420px); margin-inline:auto; padding-top:26px; display:flex; flex-direction:column; align-items:center; gap:16px; }
+
+.vsl__ticker { width:100%; display:flex; align-items:center; justify-content:center; gap:12px; padding:14px 20px; background:linear-gradient(120deg,#2a0512,var(--red-dark) 55%,#3a0718); border:0; border-block:1px solid rgba(246,180,58,.5); border-radius:0; box-shadow:0 8px 24px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.1); animation:vslTickerGlow 3.4s ease-in-out infinite; }
+.vsl__dot { flex:0 0 auto; width:9px; height:9px; border-radius:50%; background:#ff466f; box-shadow:0 0 0 0 rgba(255,70,111,.6); animation:vslPulse 1.5s ease-out infinite; }
+.vsl__ticker-track { position:relative; display:grid; flex:0 1 auto; min-width:0; max-width:960px; text-align:center; }
+.vsl__ticker-track span { grid-area:1/1; color:var(--cream); font-size:clamp(16px,3.6vw,24px); font-weight:800; line-height:1.25; letter-spacing:.01em; opacity:0; transform:translateY(10px); transition:opacity .5s ease, transform .6s cubic-bezier(.2,.75,.25,1); }
+.vsl__ticker-track span.is-active { opacity:1; transform:none; }
+.vsl__ticker-track span.is-leaving { opacity:0; transform:translateY(-10px); }
+
+.vsl__stage { position:relative; width:min(100%,340px); aspect-ratio:9/16; overflow:hidden; border:1px solid rgba(246,180,58,.45); border-radius:22px; box-shadow:0 28px 64px rgba(0,0,0,.5), 0 0 0 1px rgba(236,166,187,.12), inset 0 1px 0 rgba(255,255,255,.12); background:#150a0e; }
+.vsl__player { position:absolute; inset:0; }
+.vsl__player > * { width:100%; height:100%; }
+.vsl__placeholder { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; text-align:center; color:rgba(255,247,230,.75); background:radial-gradient(circle at 50% 38%,rgba(190,13,62,.35),transparent 60%),linear-gradient(160deg,#2a0512,#150a0e); }
+.vsl__play { display:flex; align-items:center; justify-content:center; width:64px; height:64px; padding-left:5px; color:var(--ink); font-size:24px; background:linear-gradient(160deg,#ffd97a,var(--gold) 60%,#e79c18); border-radius:50%; box-shadow:0 10px 26px rgba(246,180,58,.45); animation:ctaPulse 2.6s ease-in-out infinite; }
+.vsl__placeholder p { margin:0; font-size:14px; font-weight:800; color:var(--cream); }
+.vsl__placeholder small { font-size:11px; letter-spacing:.05em; text-transform:uppercase; opacity:.7; }
+
+.vsl__cta { position:relative; overflow:hidden; width:min(100%,340px); box-shadow:0 12px 28px rgba(246,180,58,.4), inset 0 1px 0 rgba(255,255,255,.5); animation:ctaPulse 2.6s ease-in-out infinite; }
+.vsl__cta::after { content:""; position:absolute; top:-40%; bottom:-40%; left:-35%; width:26%; background:linear-gradient(100deg,transparent,rgba(255,255,255,.6),transparent); transform:skewX(-18deg); animation:priceShine 2.6s ease-in-out infinite; pointer-events:none; }
+.vsl__cta span { transition:transform .3s; }
+.vsl__cta:hover span { transform:translateX(4px); }
+
+@keyframes vslPulse { 0% { box-shadow:0 0 0 0 rgba(255,70,111,.55); } 70% { box-shadow:0 0 0 9px rgba(255,70,111,0); } 100% { box-shadow:0 0 0 0 rgba(255,70,111,0); } }
+@keyframes vslTickerGlow { 0%,100% { border-color:rgba(246,180,58,.35); } 50% { border-color:rgba(246,180,58,.75); } }
+@keyframes vslBounce { 0%,100% { transform:translateY(0); } 50% { transform:translateY(3px); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .vsl__play, .vsl__cta, .vsl__cta::after, .vsl__ticker { animation:none; }
+}
+
 .hero { min-height: 900px; position: relative; overflow: hidden; color: var(--cream); background: var(--red); isolation: isolate; }
 .hero__background,.hero__background img,.hero__veil { position: absolute; inset: 0; width: 100%; height: 100%; }
 .hero__background { z-index: -4; background:var(--red); }

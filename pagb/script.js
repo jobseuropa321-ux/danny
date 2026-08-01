@@ -90,7 +90,7 @@
       saleValue.textContent = `Valor: R$ ${sale.value}`;
       salePlatform.textContent = sale.platform;
       saleIcon.className = `hero-sale__icon hero-sale__icon--${sale.type}`;
-      saleIcon.querySelector('img').src = sale.type === 'hotmart' ? 'assets/notifications/hotmart-97-78.jpg' : 'assets/notifications/hubla-478-80.jpg';
+      saleIcon.querySelector('img').src = sale.type === 'hotmart' ? '/assets/notifications/hotmart-97-78.jpg' : '/assets/notifications/hubla-478-80.jpg';
       saleNotification.classList.add('is-active');
     }, reduceMotion ? 0 : 220);
   };
@@ -214,25 +214,25 @@
 
   const appScreens = {
     home: {
-      image: 'assets/app-mobile/home.png',
+      image: '/assets/app-mobile/home.png',
       title: 'Sua jornada começa organizada',
       copy: 'Cursos, módulos e materiais em uma tela simples. Você entra e já sabe o próximo passo.',
       alt: 'Tela inicial do aplicativo'
     },
     agentes: {
-      image: 'assets/app-mobile/agentes.png',
+      image: '/assets/app-mobile/agentes.png',
       title: 'Onze especialistas de IA trabalhando com você',
       copy: 'Pesquisa, nome, arquitetura, roteiros, promessa, materiais, anúncios e viralização.',
       alt: 'Estúdio de Criação com agentes de inteligência artificial'
     },
     'ao-vivo': {
-      image: 'assets/app-mobile/ao-vivo.png',
+      image: '/assets/app-mobile/ao-vivo.png',
       title: 'Toda semana, direção em tempo real',
       copy: 'Aulas ao vivo, próximos encontros e replays organizados dentro do próprio aplicativo.',
       alt: 'Área de aulas ao vivo do aplicativo'
     },
     comunidade: {
-      image: 'assets/app-mobile/comunidade.png',
+      image: '/assets/app-mobile/comunidade.png',
       title: 'Resultados compartilhados viram combustível',
       copy: 'Publique conquistas, acompanhe outras profissionais e cresça cercada de quem está fazendo.',
       alt: 'Comunidade interna do aplicativo'
@@ -360,6 +360,7 @@
   };
   startRotator('[data-cta-rotator]', 2000);
   startRotator('[data-price-rotator]', 2000);
+  startRotator('[data-vsl-ticker] .vsl__ticker-track', 3200);
 
   document.querySelectorAll('[data-drag-scroll]').forEach((track) => {
     let down = false;
