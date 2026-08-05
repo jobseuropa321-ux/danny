@@ -54,7 +54,7 @@ h1 em,h2 em { color: var(--gold); font-family: "Playfair Display", serif; font-w
 .button--pink { color:var(--red-dark); background:var(--pink); box-shadow:0 14px 35px rgba(236,166,187,.24); }
 .button--pink:hover { background:var(--pink-soft); }
 .button--wide { width: 100%; }
-.checkout-button { position:relative; overflow:hidden; animation:ctaPulse 2.6s ease-in-out infinite; }
+.checkout-button { position:relative; overflow:hidden; animation:ctaPulse 2.6s ease-in-out infinite; white-space:nowrap; gap:8px; padding-inline:16px; letter-spacing:.03em; font-size:clamp(11px,3.5vw,14px); }
 /* Botão com efeito líquido (dourado/vinho da marca) — anima sozinho no mobile */
 .btn-liquid { isolation:isolate; }
 .btn-liquid .liquid { position:absolute; inset:-60% 0 auto 0; height:220%; z-index:-1; pointer-events:none; }
