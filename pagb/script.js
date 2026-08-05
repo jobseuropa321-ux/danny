@@ -360,6 +360,20 @@
   };
   startRotator('[data-cta-rotator]', 2000);
   startRotator('[data-price-rotator]', 2000);
+
+  // Barra fixa do rodapé: 1º clique rola até a oferta, 2º clique (e seguintes) vai pro checkout
+  const mobileCtaBtn = document.querySelector('.mobile-cta__btn');
+  const checkoutLink = document.querySelector('.checkout-button');
+  if (mobileCtaBtn && checkoutLink) {
+    let ctaClicks = 0;
+    mobileCtaBtn.addEventListener('click', (event) => {
+      ctaClicks += 1;
+      if (ctaClicks >= 2) {
+        event.preventDefault();
+        window.location.href = checkoutLink.getAttribute('href');
+      }
+    });
+  }
   startRotator('[data-vsl-ticker] .vsl__ticker-track', 6000);
 
   // VSL: ajusta a fonte de cada frase pra caber sempre em uma linha só

@@ -361,6 +361,20 @@
   startRotator('[data-cta-rotator]', 2000);
   startRotator('[data-price-rotator]', 2000);
 
+  // Barra fixa do rodapé: 1º clique rola até a oferta, 2º clique (e seguintes) vai pro checkout
+  const mobileCtaBtn = document.querySelector('.mobile-cta__btn');
+  const checkoutLink = document.querySelector('.checkout-button');
+  if (mobileCtaBtn && checkoutLink) {
+    let ctaClicks = 0;
+    mobileCtaBtn.addEventListener('click', (event) => {
+      ctaClicks += 1;
+      if (ctaClicks >= 2) {
+        event.preventDefault();
+        window.location.href = checkoutLink.getAttribute('href');
+      }
+    });
+  }
+
   document.querySelectorAll('[data-drag-scroll]').forEach((track) => {
     let down = false;
     let startX = 0;
