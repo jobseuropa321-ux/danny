@@ -32,7 +32,7 @@
   const renderCount = (element, value) => {
     const prefix = element.dataset.prefix || '';
     const suffix = element.dataset.suffix || '';
-    element.textContent = `${prefix}${Math.round(value).toLocaleString('pt-BR')}${suffix}`;
+    element.textContent = `${prefix}${Math.round(value).toLocaleString('es-ES')}${suffix}`;
   };
   const animateCount = (element, delay = 0) => {
     const target = Number(element.dataset.countUp || 0);
@@ -67,9 +67,9 @@
   const saleValue = saleNotification?.querySelector('[data-sale-value]');
   const salePlatform = saleNotification?.querySelector('[data-sale-platform]');
   const saleIcon = saleNotification?.querySelector('[data-sale-icon]');
-  const saleValues = ['29,90','37,00','39,90','47,00','49,90','57,00','59,80','67,00','69,90','77,00','79,90','87,00','89,70','97,00','99,90','117,00','127,00','137,00','147,00','157,00','167,00','177,00','197,00','217,00','247,00','297,00','347,00','397,00','497,00','597,00','697,00','997,00'];
-  const hotmartTitles = ['Venda realizada no cartão','Venda realizada no Pix','Venda aprovada'];
-  const hublaTitles = ['Venda realizada!','Pagamento aprovado no Pix','Nova venda confirmada'];
+  const saleValues = ['9,90'];
+  const hotmartTitles = ['Venta realizada con tarjeta','Pago aprobado','Venta aprobada'];
+  const hublaTitles = ['¡Venta realizada!','Pago aprobado al momento','Nueva plaza confirmada'];
   const headerSales = Array.from({ length: 50 }, (_, index) => {
     const isHotmart = index % 7 < 5;
     return {
@@ -87,7 +87,7 @@
     setTimeout(() => {
       if (!saleNotification) return;
       saleTitle.textContent = sale.title;
-      saleValue.textContent = `Valor: R$ ${sale.value}`;
+      saleValue.textContent = `Valor: ${sale.value} €`;
       salePlatform.textContent = sale.platform;
       saleIcon.className = `hero-sale__icon hero-sale__icon--${sale.type}`;
       saleIcon.querySelector('img').src = sale.type === 'hotmart' ? 'assets/notifications/hotmart-97-78.jpg' : 'assets/notifications/hubla-478-80.jpg';
@@ -215,27 +215,27 @@
   const appScreens = {
     home: {
       image: 'assets/app-mobile/home.png',
-      title: 'Sua jornada começa organizada',
-      copy: 'Cursos, módulos e materiais em uma tela simples. Você entra e já sabe o próximo passo.',
-      alt: 'Tela inicial do aplicativo'
+      title: 'Representa tu negocio como un sistema',
+      copy: 'Detecta sus principales fugas, bloqueos y oportunidades antes de optimizar nada.',
+      alt: 'Cuaderno: el mapa de tu restaurante'
     },
     agentes: {
       image: 'assets/app-mobile/agentes.png',
-      title: 'Onze especialistas de IA trabalhando com você',
-      copy: 'Pesquisa, nome, arquitetura, roteiros, promessa, materiais, anúncios e viralização.',
-      alt: 'Estúdio de Criação com agentes de inteligência artificial'
+      title: 'Diseña el pricing de tu carta',
+      copy: 'Ejercicio guiado con árbol de decisiones: lo que crees que compra el cliente frente a lo que realmente compra.',
+      alt: 'Cuaderno: el pricing de tu carta'
     },
     'ao-vivo': {
       image: 'assets/app-mobile/ao-vivo.png',
-      title: 'Toda semana, direção em tempo real',
-      copy: 'Aulas ao vivo, próximos encontros e replays organizados dentro do próprio aplicativo.',
-      alt: 'Área de aulas ao vivo do aplicativo'
+      title: 'Concentra la inversión donde importa',
+      copy: 'Una guía para decidir dónde concentrar inversión, control de calidad, comunicación y esfuerzo.',
+      alt: 'Cuaderno: auditoría del producto core'
     },
     comunidade: {
       image: 'assets/app-mobile/comunidade.png',
-      title: 'Resultados compartilhados viram combustível',
-      copy: 'Publique conquistas, acompanhe outras profissionais e cresça cercada de quem está fazendo.',
-      alt: 'Comunidade interna do aplicativo'
+      title: 'De la inspiración a la acción',
+      copy: 'Tres niveles de compromiso: esta semana, este mes y los próximos 90 días.',
+      alt: 'Cuaderno: plan de acción 90 días'
     }
   };
   const appImage = document.querySelector('#app-screen');
@@ -278,13 +278,13 @@
   const factoryPercent = document.querySelector('#factory-percent');
   const factoryStatus = document.querySelector('#factory-status');
   const factoryStatuses = [
-    'Analisando o seu mercado...',
-    'Criando um nome potente...',
-    'Organizando módulos e aulas...',
-    'Escrevendo os roteiros...',
-    'Lapidando a promessa...',
-    'Produzindo o material técnico...',
-    'Curso pronto para vender!'
+    'Cambiando la mirada...',
+    'Buscando el cuello de botella...',
+    'Analizando el beneficio real...',
+    'Rediseñando la carta...',
+    'Construyendo la propuesta...',
+    'Trabajando la marca...',
+    '¡Plan de acción listo!'
   ];
   let factoryIndex = 0;
   let factoryTimer = null;
@@ -361,7 +361,7 @@
   startRotator('[data-cta-rotator]', 2000);
   startRotator('[data-price-rotator]', 2000);
 
-  // Barra fixa do rodapé: 1º clique rola até a oferta, 2º clique (e seguintes) vai pro checkout
+  // Barra fija del pie: el 1er clic desplaza hasta la oferta, el 2º (y siguientes) va al checkout
   const mobileCtaBtn = document.querySelector('.mobile-cta__btn');
   const checkoutLink = document.querySelector('.checkout-button');
   if (mobileCtaBtn && checkoutLink) {
