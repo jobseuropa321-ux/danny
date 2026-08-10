@@ -110,13 +110,12 @@ h1 em,h2 em { color: var(--gold); font-family: "Great Vibes", cursive; font-weig
 .hero__bullets li.is-active { color:var(--cream); background:rgba(10,17,26,.46); border-color:rgba(233,216,166,.38); transform:translateX(5px); text-shadow:none; }
 .hero__bullets b { margin-right: 8px; color:var(--pink); opacity:.4; transition:opacity .35s,transform .35s; }
 .hero__bullets li.is-active b { opacity:1; transform:rotate(90deg) scale(1.16); }
-.hero__facts { width:100%; min-height:48px; display:flex; align-items:center; justify-content:center; gap:7px; margin-top:13px; padding:9px 13px; color:rgba(255,255,255,.84); background:rgba(10,17,26,.32); border:1px solid rgba(255,255,255,.26); border-radius:999px; font-size:11px; font-weight:900; letter-spacing:.03em; text-transform:uppercase; backdrop-filter:blur(10px); }
+.hero__facts { width:100%; min-height:48px; display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:4px 7px; margin-top:13px; padding:9px 13px; color:rgba(255,255,255,.84); background:rgba(10,17,26,.32); border:1px solid rgba(255,255,255,.26); border-radius:24px; font-size:11px; font-weight:900; letter-spacing:.03em; text-transform:uppercase; backdrop-filter:blur(10px); }
 .hero__facts > span,.hero__facts > strong { white-space:nowrap; animation:factFlow 6s ease-in-out infinite; }
 .hero__facts > span:nth-child(1) { animation-delay:0s; }
 .hero__facts > span:nth-child(3) { animation-delay:1.2s; }
-.hero__facts > span:nth-child(5) { animation-delay:2.4s; }
-.hero__facts > strong:nth-child(7) { animation-delay:3.6s; }
-.hero__facts > span:nth-child(9) { animation-delay:4.8s; }
+.hero__facts > strong:nth-child(5) { animation-delay:2.4s; }
+.hero__facts > span:nth-child(7) { animation-delay:3.6s; }
 .hero__facts i { width:4px; height:4px; flex:0 0 auto; border-radius:50%; background:var(--pink); }
 .hero__facts strong { display:flex; align-items:baseline; gap:5px; padding:5px 9px; color:var(--gold); background:rgba(201,164,92,.1); border:1px solid rgba(201,164,92,.34); border-radius:999px; font-size:14px; letter-spacing:-.02em; white-space:nowrap; }
 .hero__facts strong em { color:var(--cream); font-family:inherit; font-size:7px; font-style:normal; letter-spacing:.06em; }
