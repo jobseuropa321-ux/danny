@@ -89,7 +89,7 @@ h1 em,h2 em { color: var(--gold); font-family: "Great Vibes", cursive; font-weig
 .hero__background,.hero__background img,.hero__veil { position: absolute; inset: 0; width: 100%; height: 100%; }
 .hero__background { z-index: -4; background:var(--red); }
 .hero__background::after { content:""; position:absolute; inset:0; background:rgba(28,58,92,.16); mix-blend-mode:color; pointer-events:none; }
-.hero__background img { object-fit: cover; object-position: center; }
+.hero__background img { object-fit: cover; object-position: 62% 35%; }
 .hero__veil { z-index: -2; background: linear-gradient(90deg,rgba(6,14,24,.93) 0%,rgba(9,20,33,.68) 36%,rgba(28,58,92,.03) 67%),linear-gradient(0deg,rgba(8,18,30,.76) 0%,rgba(8,18,30,.08) 43%); }
 .hero__top-strip { min-height:44px; position:absolute; z-index:5; inset:0 0 auto; display:flex; align-items:center; justify-content:center; gap:14px; padding:10px 20px; color:var(--red); background:var(--cream); border-bottom:1px solid rgba(169,138,78,.72); box-shadow:0 8px 32px rgba(8,20,34,.13); text-align:center; text-transform:uppercase; }
 .hero__top-strip > span { color:var(--pink); font-size:14px; animation:stripStar 2.2s ease-in-out infinite; }
@@ -545,7 +545,7 @@ body.is-scrolled .mobile-cta { transform:translate(-50%,0); }
 }
 
 @media (min-width: 1001px) {
-  .hero__background img { object-position:right center; }
+  .hero__background img { object-position:72% 35%; }
   .hero__frame { width:min(calc(100% - 80px),1680px); }
   .hero__brand { font-size:clamp(14px,1.1vw,17px); }
   .hero__copy { width:min(660px,48vw); }
