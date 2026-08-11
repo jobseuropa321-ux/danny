@@ -753,3 +753,26 @@ body.is-scrolled .mobile-cta { transform:translate(-50%,0); }
   .project-logo-strip { overflow-x:auto; scrollbar-width:none; }
   .project-logo-strip__track { animation:none !important; transform:none !important; }
 }
+
+/* VSL no topo (portada da pagb, identidade navy/gold, sem trava de minutos) */
+.vsl { position:relative; min-height:100vh; min-height:100dvh; display:flex; flex-direction:column; padding:0; color:var(--cream); background:radial-gradient(circle at 50% -10%,rgba(201,164,92,.18),transparent 55%),linear-gradient(170deg,#0D1E33,var(--red-dark) 55%,#15304F); isolation:isolate; }
+.vsl__inner { flex:1; width:min(calc(100% - 32px),420px); margin-inline:auto; padding:16px 0 20px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18px; }
+.vsl__ticker { width:100%; display:flex; align-items:center; justify-content:center; gap:12px; padding:14px 20px; background:linear-gradient(120deg,#0D1E33,var(--red-dark) 55%,#15304F); border:0; border-block:1px solid rgba(201,164,92,.5); border-radius:0; box-shadow:0 8px 24px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.1); animation:vslTickerGlow 3.4s ease-in-out infinite; }
+.vsl__ticker-track { position:relative; flex:1; min-width:0; min-height:1.5em; overflow:hidden; font-size:clamp(18px,5.2vw,30px); font-weight:800; line-height:1.15; letter-spacing:.01em; }
+.vsl__ticker-track span { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; text-align:center; white-space:nowrap; color:var(--cream); opacity:0; transform:translateY(10px); transition:opacity .5s ease, transform .6s cubic-bezier(.2,.75,.25,1); }
+.vsl__ticker-track span.is-active { opacity:1; transform:none; }
+.vsl__ticker-track span.is-leaving { opacity:0; transform:translateY(-10px); }
+.vsl__stage { position:relative; height:min(78dvh,680px); aspect-ratio:9/16; width:auto; max-width:100%; overflow:hidden; border:1px solid rgba(201,164,92,.45); border-radius:22px; box-shadow:0 28px 64px rgba(0,0,0,.5), 0 0 0 1px rgba(233,216,166,.12), inset 0 1px 0 rgba(255,255,255,.12); background:#0B121B; }
+.vsl__player { position:absolute; inset:0; }
+.vsl__player > * { width:100%; height:100%; }
+.vsl__cta { position:relative; overflow:hidden; width:min(100%,340px); box-shadow:0 12px 28px rgba(201,164,92,.4), inset 0 1px 0 rgba(255,255,255,.5); animation:ctaPulse 2.6s ease-in-out infinite; }
+.vsl__cta::after { content:""; position:absolute; top:-40%; bottom:-40%; left:-35%; width:26%; background:linear-gradient(100deg,transparent,rgba(255,255,255,.6),transparent); transform:skewX(-18deg); animation:priceShine 2.6s ease-in-out infinite; pointer-events:none; }
+.vsl__cta span { transition:transform .3s; }
+.vsl__cta:hover span { transform:translateX(4px); }
+@keyframes vslTickerGlow { 0%,100% { border-color:rgba(201,164,92,.35); } 50% { border-color:rgba(201,164,92,.75); } }
+@media (max-width:480px) {
+  .vsl__ticker { padding:13px 10px; gap:0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vsl__cta, .vsl__cta::after, .vsl__ticker { animation:none; }
+}

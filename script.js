@@ -360,6 +360,28 @@
   };
   startRotator('[data-cta-rotator]', 2000);
   startRotator('[data-price-rotator]', 2000);
+  startRotator('[data-vsl-ticker] .vsl__ticker-track', 6000);
+
+  // VSL: ajusta la fuente de cada frase para que quepa siempre en una sola línea
+  const vslTrack = document.querySelector('[data-vsl-ticker] .vsl__ticker-track');
+  if (vslTrack) {
+    const vslSpans = [...vslTrack.querySelectorAll('span')];
+    const measureCtx = document.createElement('canvas').getContext('2d');
+    const fitTicker = () => {
+      const avail = vslTrack.clientWidth - 6;
+      if (avail <= 0) return;
+      const base = parseFloat(getComputedStyle(vslTrack).fontSize);
+      const weight = getComputedStyle(vslTrack).fontWeight || '800';
+      vslSpans.forEach((span) => {
+        measureCtx.font = `${weight} ${base}px "Montserrat", sans-serif`;
+        const width = measureCtx.measureText(span.textContent).width;
+        span.style.fontSize = `${width > avail ? Math.floor(base * avail / width) : base}px`;
+      });
+    };
+    fitTicker();
+    document.fonts?.ready.then(fitTicker);
+    addEventListener('resize', fitTicker);
+  }
 
   // Barra fija del pie: el 1er clic desplaza hasta la oferta, el 2º (y siguientes) va al checkout
   const mobileCtaBtn = document.querySelector('.mobile-cta__btn');
