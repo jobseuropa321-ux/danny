@@ -396,7 +396,7 @@ h1 em,h2 em { color: var(--gold); font-family: "Great Vibes", cursive; font-weig
 @keyframes bannerBreathe { 0%,100% { transform:scale(1); } 50% { transform:scale(1.022); } }
 .mentors__image::before { content:""; position:absolute; inset:-8%; background:radial-gradient(ellipse at 50% 55%,rgba(233,216,166,.4),transparent 62%); filter:blur(24px); animation:mentorGlow 6.5s ease-in-out infinite; pointer-events:none; }
 @keyframes mentorGlow { 0%,100% { opacity:.4; } 50% { opacity:.85; } }
-.mentors__image img { position:relative; width:100%; aspect-ratio:16/10; object-fit:cover; object-position:center 12%; border-radius:28px; box-shadow:0 30px 70px rgba(8,20,34,.38); }
+.mentors__image img { position:relative; width:100%; aspect-ratio:16/10; object-fit:cover; object-position:68% 30%; border-radius:28px; box-shadow:0 30px 70px rgba(8,20,34,.38); }
 .mentors__image > div { position:absolute; left:20px; bottom:20px; padding:14px 18px; color:var(--ink); background:var(--gold); border-radius:13px; transform:rotate(-2deg); animation:badgeSway 4.2s ease-in-out infinite; }
 @keyframes badgeSway { 0%,100% { transform:rotate(-2deg); } 50% { transform:rotate(-4.5deg) translateY(-3px); } }
 .mentors__image b,.mentors__image span { display:block; font-size:11px; letter-spacing:.08em; }
