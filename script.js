@@ -62,41 +62,6 @@
     countObserver.observe(document.querySelector('.stats'));
   }
 
-  const saleNotification = document.querySelector('[data-sale-notification]');
-  const saleTitle = saleNotification?.querySelector('[data-sale-title]');
-  const saleValue = saleNotification?.querySelector('[data-sale-value]');
-  const salePlatform = saleNotification?.querySelector('[data-sale-platform]');
-  const saleIcon = saleNotification?.querySelector('[data-sale-icon]');
-  const saleValues = ['9,90'];
-  const hotmartTitles = ['Venta realizada con tarjeta','Pago aprobado','Venta aprobada'];
-  const hublaTitles = ['¡Venta realizada!','Pago aprobado al momento','Nueva plaza confirmada'];
-  const headerSales = Array.from({ length: 50 }, (_, index) => {
-    const isHotmart = index % 7 < 5;
-    return {
-      platform: isHotmart ? 'Hotmart' : 'Hubla',
-      type: isHotmart ? 'hotmart' : 'hubla',
-      title: isHotmart ? hotmartTitles[index % hotmartTitles.length] : hublaTitles[index % hublaTitles.length],
-      value: saleValues[(index * 7 + 3) % saleValues.length]
-    };
-  });
-  let headerSaleIndex = 0;
-  const showHeaderSale = (index) => {
-    headerSaleIndex = (index + headerSales.length) % headerSales.length;
-    const sale = headerSales[headerSaleIndex];
-    saleNotification?.classList.remove('is-active');
-    setTimeout(() => {
-      if (!saleNotification) return;
-      saleTitle.textContent = sale.title;
-      saleValue.textContent = `Valor: ${sale.value} €`;
-      salePlatform.textContent = sale.platform;
-      saleIcon.className = `hero-sale__icon hero-sale__icon--${sale.type}`;
-      saleIcon.querySelector('img').src = sale.type === 'hotmart' ? 'assets/notifications/hotmart-97-78.jpg' : 'assets/notifications/hubla-478-80.jpg';
-      saleNotification.classList.add('is-active');
-    }, reduceMotion ? 0 : 220);
-  };
-  if (headerSales.length > 1 && !reduceMotion) {
-    setInterval(() => showHeaderSale(headerSaleIndex + 1), 2800);
-  }
 
   const heroBenefits = document.querySelector('[data-hero-benefits]');
   const benefitItems = [...document.querySelectorAll('[data-hero-benefit]')];
