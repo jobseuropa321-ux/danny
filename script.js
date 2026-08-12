@@ -176,100 +176,6 @@
     restart();
   });
 
-  const memberMarquee = document.querySelector('[data-member-marquee]');
-  if (memberMarquee && !reduceMotion) {
-    const memberTracks = [...memberMarquee.querySelectorAll('[data-member-track]')];
-    let memberMarqueePaused = false;
-
-    const pauseMemberMarquee = () => { memberMarqueePaused = true; };
-    const resumeMemberMarquee = () => { memberMarqueePaused = false; };
-    memberMarquee.addEventListener('mouseenter', pauseMemberMarquee);
-    memberMarquee.addEventListener('mouseleave', resumeMemberMarquee);
-    memberMarquee.addEventListener('touchstart', pauseMemberMarquee, { passive: true });
-    memberMarquee.addEventListener('touchend', resumeMemberMarquee, { passive: true });
-
-    memberTracks.forEach((track) => {
-      const speed = Number(track.dataset.speed || 70);
-      let offset = 0;
-      let previousFrame = performance.now();
-
-      const moveTrack = (now) => {
-        const elapsed = Math.min((now - previousFrame) / 1000, .05);
-        previousFrame = now;
-        if (!memberMarqueePaused) offset += speed * elapsed;
-
-        let firstCard = track.firstElementChild;
-        const gap = Number.parseFloat(getComputedStyle(track).columnGap) || 0;
-        while (firstCard && offset >= firstCard.getBoundingClientRect().width + gap) {
-          offset -= firstCard.getBoundingClientRect().width + gap;
-          track.append(firstCard);
-          firstCard = track.firstElementChild;
-        }
-        track.style.transform = `translate3d(${-offset}px, 0, 0)`;
-        requestAnimationFrame(moveTrack);
-      };
-      requestAnimationFrame(moveTrack);
-    });
-  }
-
-  const appScreens = {
-    home: {
-      image: 'assets/app-mobile/home.png',
-      title: 'Representa tu negocio como un sistema',
-      copy: 'Detecta sus principales fugas, bloqueos y oportunidades antes de optimizar nada.',
-      alt: 'Cuaderno: el mapa de tu restaurante'
-    },
-    agentes: {
-      image: 'assets/app-mobile/agentes.png',
-      title: 'Diseña el pricing de tu carta',
-      copy: 'Ejercicio guiado con árbol de decisiones: lo que crees que compra el cliente frente a lo que realmente compra.',
-      alt: 'Cuaderno: el pricing de tu carta'
-    },
-    'ao-vivo': {
-      image: 'assets/app-mobile/ao-vivo.png',
-      title: 'Concentra la inversión donde importa',
-      copy: 'Una guía para decidir dónde concentrar inversión, control de calidad, comunicación y esfuerzo.',
-      alt: 'Cuaderno: auditoría del producto core'
-    },
-    comunidade: {
-      image: 'assets/app-mobile/comunidade.png',
-      title: 'De la inspiración a la acción',
-      copy: 'Tres niveles de compromiso: esta semana, este mes y los próximos 90 días.',
-      alt: 'Cuaderno: plan de acción 90 días'
-    }
-  };
-  const appImage = document.querySelector('#app-screen');
-  const appTitle = document.querySelector('#app-demo-title');
-  const appCopy = document.querySelector('#app-demo-copy');
-  const appButtons = [...document.querySelectorAll('[data-app-screen]')];
-  let currentAppScreen = 'home';
-  let appTimer;
-
-  const setAppScreen = (key) => {
-    const screen = appScreens[key];
-    if (!screen || key === currentAppScreen) return;
-    currentAppScreen = key;
-    appImage.classList.add('is-changing');
-    setTimeout(() => {
-      appImage.src = screen.image;
-      appImage.alt = screen.alt;
-      appTitle.textContent = screen.title;
-      appCopy.textContent = screen.copy;
-      appImage.classList.remove('is-changing');
-    }, reduceMotion ? 0 : 180);
-    appButtons.forEach((button) => button.classList.toggle('is-active', button.dataset.appScreen === key));
-  };
-  const resetAppTimer = () => {
-    clearInterval(appTimer);
-    if (reduceMotion) return;
-    const keys = Object.keys(appScreens);
-    appTimer = setInterval(() => setAppScreen(keys[(keys.indexOf(currentAppScreen) + 1) % keys.length]), 4800);
-  };
-  appButtons.forEach((button) => button.addEventListener('click', () => {
-    setAppScreen(button.dataset.appScreen);
-    resetAppTimer();
-  }));
-  resetAppTimer();
 
   const factory = document.querySelector('[data-factory]');
   const factorySlides = [...document.querySelectorAll('[data-factory-slide]')];
@@ -412,10 +318,4 @@
     });
     ['pointerup', 'pointercancel'].forEach((name) => track.addEventListener(name, () => { down = false; }));
   });
-
-  const viralTrack = document.querySelector('.viral-track');
-  if (viralTrack && !viralTrack.dataset.cloned) {
-    [...viralTrack.children].forEach((card) => viralTrack.append(card.cloneNode(true)));
-    viralTrack.dataset.cloned = 'true';
-  }
 })();
