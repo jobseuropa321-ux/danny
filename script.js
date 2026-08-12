@@ -146,12 +146,13 @@
       viewport.scrollTo({ left: active * stepSize(), behavior });
       [...(dots?.children || [])].forEach((dot, dotIndex) => dot.classList.toggle('is-active', dotIndex === active));
     };
+    const pauseOnHover = !slider.hasAttribute('data-no-pause');
     const restart = () => {
       clearInterval(timer);
       const delay = Number(slider.dataset.autoplay || 0);
       if (delay && !reduceMotion) {
         timer = setInterval(() => {
-          if (slider.matches(':hover')) return;
+          if (pauseOnHover && slider.matches(':hover')) return;
           goTo(active + 1);
         }, delay);
       }
@@ -169,8 +170,10 @@
         }
       }, 90);
     }, { passive: true });
-    slider.addEventListener('mouseenter', () => clearInterval(timer));
-    slider.addEventListener('mouseleave', restart);
+    if (pauseOnHover) {
+      slider.addEventListener('mouseenter', () => clearInterval(timer));
+      slider.addEventListener('mouseleave', restart);
+    }
     slider.addEventListener('touchstart', () => clearInterval(timer), { passive: true });
     slider.addEventListener('touchend', restart, { passive: true });
     restart();
