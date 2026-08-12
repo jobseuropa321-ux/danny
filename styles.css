@@ -396,7 +396,7 @@ h1 em,h2 em { color: var(--gold); font-family: "Great Vibes", cursive; font-weig
 @keyframes bannerBreathe { 0%,100% { transform:scale(1); } 50% { transform:scale(1.022); } }
 .mentors__image::before { content:""; position:absolute; inset:-8%; background:radial-gradient(ellipse at 50% 55%,rgba(233,216,166,.4),transparent 62%); filter:blur(24px); animation:mentorGlow 6.5s ease-in-out infinite; pointer-events:none; }
 @keyframes mentorGlow { 0%,100% { opacity:.4; } 50% { opacity:.85; } }
-.mentors__image img { position:relative; width:100%; border-radius:28px; box-shadow:0 30px 70px rgba(8,20,34,.38); }
+.mentors__image img { position:relative; width:100%; aspect-ratio:16/10; object-fit:cover; object-position:center 12%; border-radius:28px; box-shadow:0 30px 70px rgba(8,20,34,.38); }
 .mentors__image > div { position:absolute; left:20px; bottom:20px; padding:14px 18px; color:var(--ink); background:var(--gold); border-radius:13px; transform:rotate(-2deg); animation:badgeSway 4.2s ease-in-out infinite; }
 @keyframes badgeSway { 0%,100% { transform:rotate(-2deg); } 50% { transform:rotate(-4.5deg) translateY(-3px); } }
 .mentors__image b,.mentors__image span { display:block; font-size:11px; letter-spacing:.08em; }
@@ -406,17 +406,16 @@ h1 em,h2 em { color: var(--gold); font-family: "Great Vibes", cursive; font-weig
 .offer-badge span { color:var(--gold); font-size:12px; }
 @keyframes badgeWiggle { 0%,100% { transform:rotate(-2deg); } 25% { transform:rotate(1.6deg) translateY(-2px); } 50% { transform:rotate(-1.2deg); } 75% { transform:rotate(1.8deg) translateY(-1px); } }
 .offer-price-hl { position:relative; display:inline-grid; justify-items:center; vertical-align:baseline; font-family:"Montserrat",sans-serif; font-style:normal; font-weight:900; letter-spacing:-.02em; }
-.offer-price-hl span { grid-area:1/1; white-space:nowrap; background:linear-gradient(100deg,#8A6E3A 25%,#B0904E 46%,#8A6E3A 66%); background-size:220% 100%; -webkit-background-clip:text; background-clip:text; color:transparent; animation:starsShimmer 3.4s ease-in-out infinite; opacity:0; transform:translateY(12px); transition:opacity .4s, transform .5s cubic-bezier(.2,.75,.25,1); }
+.offer-price-hl span { grid-area:1/1; white-space:normal; background:linear-gradient(100deg,#8A6E3A 25%,#B0904E 46%,#8A6E3A 66%); background-size:220% 100%; -webkit-background-clip:text; background-clip:text; color:transparent; animation:starsShimmer 3.4s ease-in-out infinite; opacity:0; transform:translateY(12px); transition:opacity .4s, transform .5s cubic-bezier(.2,.75,.25,1); }
 .offer-price-hl span.is-active { opacity:1; transform:translateY(0); }
 .offer-price-hl span.is-leaving { opacity:0; transform:translateY(-12px); }
 .offer-anchor { font-size:17px; line-height:1.6; opacity:.85; }
 .offer-anchor b { color:var(--red); font-weight:900; }
 .offer__grid { display:grid; grid-template-columns:.9fr 1.1fr; gap:80px; align-items:center; }
+.offer__grid > * { min-width:0; }
 .offer__summary p { max-width:520px; font-size:18px; line-height:1.65; color:#4E5966; }
-.offer__visual { width:270px; height:320px; margin-top:35px; position:relative; overflow:hidden; padding:8px; background:var(--ink); border:7px solid var(--ink); border-radius:34px; transform:rotate(-4deg); box-shadow:var(--shadow); }
-.offer__visual img { width:100%; height:100%; object-fit:cover; object-position:top; border-radius:21px; }
-.offer__visual span { position:absolute; right:-35px; bottom:40px; display:flex; align-items:center; gap:8px; padding:11px 20px; color:var(--ink); background:var(--gold); border-radius:999px; transform:rotate(4deg); }
-.offer__visual b { font-size:25px; }
+.offer__visual { width:min(420px,100%); aspect-ratio:4/5; margin-top:35px; position:relative; overflow:hidden; border-radius:26px; box-shadow:0 30px 70px rgba(8,20,34,.24); }
+.offer__visual img { width:100%; height:100%; object-fit:cover; object-position:center top; }
 .offer-card { overflow:hidden; padding:0 42px 38px; border:1px solid rgba(169,138,78,.13); border-radius:30px; background:#FBF8F0; box-shadow:0 35px 90px rgba(8,20,34,.18); }
 .offer-card__tag { margin:0 -42px 28px; padding:13px; text-align:center; color:var(--cream); background:var(--red); font-size:10px; font-weight:900; letter-spacing:.14em; }
 .offer-card__logo { display:flex; justify-content:center; width:max-content; margin:0 auto 20px; font-size:17px; animation:logoZoom 4.2s ease-in-out infinite; filter:drop-shadow(0 8px 20px rgba(28,58,92,.14)); }
