@@ -88,9 +88,9 @@ h1 em,h2 em { color: var(--gold); font-family: "Great Vibes", cursive; font-weig
 .hero { min-height: 900px; position: relative; overflow: hidden; color: var(--cream); background: var(--red); isolation: isolate; }
 .hero__background,.hero__background img,.hero__veil { position: absolute; inset: 0; width: 100%; height: 100%; }
 .hero__background { z-index: -4; background:var(--red); }
-.hero__background::after { content:""; position:absolute; inset:0; background:rgba(28,58,92,.16); mix-blend-mode:color; pointer-events:none; }
+.hero__background::after { content:""; position:absolute; inset:0; background:rgba(28,58,92,.1); mix-blend-mode:color; pointer-events:none; }
 .hero__background img { object-fit: cover; object-position: 62% 35%; }
-.hero__veil { z-index: -2; background: linear-gradient(90deg,rgba(6,14,24,.93) 0%,rgba(9,20,33,.68) 36%,rgba(28,58,92,.03) 67%),linear-gradient(0deg,rgba(8,18,30,.76) 0%,rgba(8,18,30,.08) 43%); }
+.hero__veil { z-index: -2; background: linear-gradient(90deg,rgba(6,14,24,.9) 0%,rgba(9,20,33,.52) 30%,rgba(28,58,92,.04) 58%),linear-gradient(0deg,rgba(8,18,30,.5) 0%,rgba(8,18,30,.03) 28%); }
 .hero__top-strip { min-height:44px; position:absolute; z-index:5; inset:0 0 auto; display:flex; align-items:center; justify-content:center; gap:14px; padding:10px 20px; color:var(--red); background:var(--cream); border-bottom:1px solid rgba(169,138,78,.72); box-shadow:0 8px 32px rgba(8,20,34,.13); text-align:center; text-transform:uppercase; }
 .hero__top-strip > span { color:var(--pink); font-size:14px; animation:stripStar 2.2s ease-in-out infinite; }
 .hero__top-strip strong { font-size:12px; letter-spacing:.17em; }
@@ -578,7 +578,7 @@ body.is-scrolled .mobile-cta { transform:translate(-50%,0); }
   .section-heading--split p,.section-heading--center p { font-size:15px; }
   .hero { height:100svh; min-height:0; }
   .hero__background img { object-position:center top; }
-  .hero__veil { background:linear-gradient(0deg,rgba(6,14,24,.99) 0%,rgba(6,14,24,.96) 37%,rgba(6,14,24,.6) 56%,rgba(6,14,24,.03) 76%); }
+  .hero__veil { background:linear-gradient(0deg,rgba(6,14,24,.97) 0%,rgba(6,14,24,.85) 30%,rgba(6,14,24,.35) 55%,rgba(6,14,24,0) 78%); }
   .hero__top-strip { min-height:41px; gap:7px; padding:8px 12px; white-space:nowrap; }
   .hero__top-strip strong { overflow:hidden; font-size:10.5px; letter-spacing:.085em; text-overflow:ellipsis; }
   .hero__top-strip small { display:none; }
