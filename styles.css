@@ -295,7 +295,8 @@ h1 em,h2 em { color: var(--gold); font-family: "Great Vibes", cursive; font-weig
 .mindset__item:nth-child(3) { transition-delay:.35s; } .mindset__item:nth-child(3)::before { transition-delay:.6s; } .mindset__item:nth-child(3) s::after { transition-delay:.85s; }
 .mindset__item:nth-child(4) { transition-delay:.5s; } .mindset__item:nth-child(4)::before { transition-delay:.75s; } .mindset__item:nth-child(4) s::after { transition-delay:1s; }
 
-.curriculum__heading { margin-bottom:34px; }
+.curriculum { padding:66px 0 74px; }
+.curriculum__heading { margin-bottom:28px; }
 .curriculum__heading h2 { margin:0; }
 .curriculum__intro { max-width:680px; margin:16px 0 0; font-size:17px; line-height:1.6; opacity:.78; }
 .curriculum__topics { display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
