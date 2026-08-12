@@ -314,7 +314,7 @@ h1 em,h2 em { color: var(--gold); font-family: "Great Vibes", cursive; font-weig
 .module-marquee figure { width:180px; height:260px; flex:0 0 auto; margin:0; position:relative; overflow:hidden; border:1px solid rgba(255,255,255,.12); border-radius:17px; }
 .module-marquee figure > span { width:30px; height:30px; position:absolute; z-index:2; right:8px; top:8px; display:grid; place-items:center; color:var(--cream); background:var(--red); border-radius:50%; font-size:9px; font-weight:900; }
 .module-marquee img { width:100%; height:100%; object-fit:cover; }
-.module-marquee figcaption { position:absolute; inset:auto 0 0; padding:29px 12px 12px; color:var(--cream); background:linear-gradient(transparent,rgba(0,0,0,.9)); text-transform:uppercase; font-size:10px; font-weight:900; }
+.module-marquee figcaption { position:absolute; inset:auto 0 0; padding:34px 12px 12px; color:var(--cream); background:linear-gradient(transparent,rgba(0,0,0,.92)); text-transform:none; font-size:11px; font-weight:800; line-height:1.35; letter-spacing:.01em; }
 .module-console__closing { margin:20px 8px 0; color:var(--cream); opacity:.82; font-size:14px; font-weight:600; line-height:1.6; }
 .module-console__footer { padding:20px 8px 4px; }
 .module-console__footer span { opacity:.56; }
@@ -390,8 +390,12 @@ h1 em,h2 em { color: var(--gold); font-family: "Great Vibes", cursive; font-weig
 .mentors h2 { font-size:clamp(17.5px,5.45vw,48px); letter-spacing:.01em; }
 @media (max-width:355px) { .mentors h2 { font-size:15.8px; letter-spacing:.01em; } }
 .mentors h2 em { position:relative; color:var(--pink); background:linear-gradient(100deg,var(--pink-soft) 22%,var(--pink) 46%,var(--pink-soft) 68%); background-size:220% 100%; -webkit-background-clip:text; background-clip:text; color:transparent; animation:starsShimmer 3.8s ease-in-out infinite; }
-.mentors__subline { margin:12px auto 0 !important; font-size:16px !important; opacity:.8; }
+.mentors__subline { margin:12px auto 0 !important; max-width:620px; font-size:16px !important; opacity:.8; }
 .mentors__subline b { color:var(--pink); font-weight:900; }
+.mentors__rotator { position:relative; min-height:2.6em; max-width:640px; margin:14px auto 0; font-size:clamp(13px,1.5vw,17px); font-weight:800; letter-spacing:.02em; color:#E9D8A6; }
+.mentors__rotator span { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; text-align:center; padding:0 10px; opacity:0; transform:translateY(12px); transition:opacity .4s ease, transform .5s cubic-bezier(.2,.75,.25,1); }
+.mentors__rotator span.is-active { opacity:1; transform:none; }
+.mentors__rotator span.is-leaving { opacity:0; transform:translateY(-12px); }
 .mentors__image { position:relative; max-width:940px; margin-inline:auto; animation:bannerBreathe 6.5s ease-in-out infinite; }
 @keyframes bannerBreathe { 0%,100% { transform:scale(1); } 50% { transform:scale(1.022); } }
 .mentors__image::before { content:""; position:absolute; inset:-8%; background:radial-gradient(ellipse at 50% 55%,rgba(233,216,166,.4),transparent 62%); filter:blur(24px); animation:mentorGlow 6.5s ease-in-out infinite; pointer-events:none; }
